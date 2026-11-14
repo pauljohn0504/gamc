@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8000:8000"
+    environment:
+      GAMC_HOST: "0.0.0.0"
+      GAMC_PORT: "8000"
+      GAMC_DATA_DIR: "/app/data"
+    volumes:
+      - gamc_data:/app/data
+    restart: unless-stopped
+volumes:
+  gamc_data:
